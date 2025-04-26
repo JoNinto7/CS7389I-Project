@@ -13,14 +13,22 @@ const COOLDOWN_TIME := 0.5
 
 var last_position: Vector3
 var cooldown_timer := 0.0
+var grip_held := false  # NEW: Track if grip is held
+
+# Replace with your actual action name for grip if needed
+const GRIP_BUTTON_NAME := "grip_click"  
 
 func _ready():
 	controller = get_node(controller_node_path)
 	debug_label = get_node(debug_label_path)
 	last_position = controller.global_transform.origin
 
+	# Connect controller button events
+	controller.button_pressed.connect(_on_button_pressed)
+	controller.button_released.connect(_on_button_released)
+
 func _physics_process(delta):
-	if not controller:
+	if not controller or not grip_held:
 		return
 
 	if cooldown_timer > 0:
@@ -48,3 +56,11 @@ func get_flick_direction(velocity: Vector3) -> String:
 	elif abs(velocity.z) > abs(velocity.x) and abs(velocity.z) > abs(velocity.y):
 		return "forward" if velocity.z < 0 else "backward"
 	return ""
+
+func _on_button_pressed(name: String):
+	if name == GRIP_BUTTON_NAME:
+		grip_held = true
+
+func _on_button_released(name: String):
+	if name == GRIP_BUTTON_NAME:
+		grip_held = false
