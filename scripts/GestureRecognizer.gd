@@ -8,8 +8,8 @@ signal flick_detected(direction: String)
 var controller: XRController3D
 var debug_label: Label3D
 
-const FLICK_SPEED_THRESHOLD := 1.5
-const COOLDOWN_TIME := 0.5
+const FLICK_SPEED_THRESHOLD := 2.0
+const COOLDOWN_TIME := 2.0
 
 var last_position: Vector3
 var cooldown_timer := 0.0
@@ -47,6 +47,7 @@ func _physics_process(delta):
 			if debug_label:
 				debug_label.text = "Gesture: " + dir
 			cooldown_timer = COOLDOWN_TIME
+			last_position = controller.global_transform.origin
 
 func get_flick_direction(velocity: Vector3) -> String:
 	if abs(velocity.x) > abs(velocity.y) and abs(velocity.x) > abs(velocity.z):

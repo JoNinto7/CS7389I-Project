@@ -126,5 +126,5 @@ res://addons/godot-xr-tools/staging/staging_env.tres::b7473dffb50e2081920af779e8
 res://addons/godot-xr-tools/user_settings/user_settings_ui.tscn::af7bfe1b7d44bae9126727deb1115d4d::1739069950::res://.godot/exported/133200997/export-ab2a02b46b1461b01b11fbb15c89c180-user_settings_ui.scn
 res://addons/godot-xr-tools/xr/start_xr.tscn::2a7f65fb8ac9a6a91676085abf3fcfce::1739069952::res://.godot/exported/133200997/export-7fd0d6b3a962be10043f7b02735e295c-start_xr.scn
 res://controllers/controller_material.tres::2779ba6bf5be02215cd2652a74fd32af::1743963768::res://.godot/exported/133200997/export-69cc7130104a269b0b5af33ddce9488c-controller_material.res
-res://scenes/main.tscn::64c5fd607ea2e70623a73d4551da146f::1745697702::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
+res://scenes/main.tscn::64c5fd607ea2e70623a73d4551da146f::1745698231::res://.godot/exported/133200997/export-3ad5c15c4f3250da0cc7c1af1770d85f-main.scn
 res://openxr_action_map.tres::493739ed89f9544abc6a2cbfb54e0fc5::1745695431::res://.godot/exported/133200997/export-a9d757fdde490682a87dc1ad8c7d3357-openxr_action_map.res
