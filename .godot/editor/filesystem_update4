@@ -1,6 +1,4 @@
-res://main.tscn
 res://scenes/main.tscn
 res://openxr_action_map.tres
-res://scenes/world.tscn
-res://gdshaders/test.gdshader
-res://scripts/main.gd
+res://scripts/GestureRecognizer.gd
+res://scripts/initialize.gd

@@ -10,42 +10,20 @@ config_version=5
 
 [application]
 
-config/name="Godot OpenXR Demo"
+config/name="CS7389I Project"
 run/main_scene="res://scenes/main.tscn"
-config/features=PackedStringArray("4.3", "GL Compatibility")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[debug]
+[autoload]
 
-settings/stdout/verbose_stdout=true
-
-[display]
-
-window/size/viewport_width=1200
-window/size/viewport_height=600
-
-[layer_names]
-
-3d_physics/layer_1="World"
-3d_physics/layer_2="Player hands"
+Globals="*res://scripts/globals.gd"
 
 [rendering]
 
-renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
-lights_and_shadows/directional_shadow/size=8192
-lights_and_shadows/directional_shadow/size.mobile=4096
-environment/defaults/default_clear_color=Color(0.396889, 0.396889, 0.396889, 1)
-anti_aliasing/quality/msaa_3d=2
 
 [xr]
 
 openxr/enabled=true
-openxr/environment_blend_mode=0
-openxr/foveation_level=3
-openxr/foveation_dynamic=true
-openxr/submit_depth_buffer=true
-openxr/extensions/eye_gaze_interaction=true
 shaders/enabled=true
-openxr/extensions/debug_utils=4
-openxr/extensions/debug_message_types=6
