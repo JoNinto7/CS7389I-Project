@@ -28,20 +28,23 @@ func _ready():
 		instruction_label = get_node(instruction_label_path)
 
 func spawn_slots():
+	var slot_directions = {
+		0: 180,
+		1: 90,
+		2: 0,
+		3: 270
+	}
+
 	for i in range(slot_count):
 		var slot = Label3D.new()
-		if i < slot_labels.size():
-			slot.text = slot_labels[i]
-		else:
-			slot.text = "Slot %d" % i
-
-		slot.scale = Vector3(0.2, 0.2, 0.2)  # Smaller size
+		slot.text = slot_labels[i] if i < slot_labels.size() else "Slot %d" % i
+		slot.scale = Vector3(0.2, 0.2, 0.2)
 		slot.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-		slot.modulate = Color(1, 1, 1)  # Default white
+		slot.modulate = Color(1, 1, 1)
 		add_child(slot)
 		slots.append(slot)
 
-		var angle = i * (360.0 / slot_count)
+		var angle = slot_directions.get(i, i * (360.0 / slot_count))
 		var radians = deg_to_rad(angle)
 
 		var x = radius * sin(radians)
@@ -59,14 +62,14 @@ func _on_flick_detected(direction: String):
 
 func highlight_slot(index: int):
 	for i in range(slots.size()):
-		slots[i].modulate = Color(1, 1, 1)  # Reset all
+		slots[i].modulate = Color(1, 1, 1)
 
 	if index >= 0 and index < slots.size():
-		slots[index].modulate = Color(0, 1, 0)  # Green highlight
+		slots[index].modulate = Color(0, 1, 0)
 
 func confirm_selection():
 	if selected_index == -1:
-		return  # No flicked selection
+		return
 
 	match selected_index:
 		0:
@@ -88,7 +91,6 @@ func exit_game():
 	get_tree().quit()
 
 func back():
-	# Just close the menu
 	pass
 
 func show_instructions():

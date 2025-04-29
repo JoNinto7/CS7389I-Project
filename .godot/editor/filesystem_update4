@@ -1,7 +1,6 @@
-res://scenes/main.tscn
+res://scenes/puzzle_board.tscn
 res://openxr_action_map.tres
 res://materials/highlight.tres
-res://scenes/puzzle_board.tscn
-res://scripts/puzzle_board.gd
-res://scripts/GestureRecognizer.gd
 res://scripts/RadialMenu.gd
+res://scenes/main.tscn
+res://scripts/GestureRecognizer.gd

@@ -31,7 +31,6 @@ func _physics_process(delta):
 	if not controller or not grip_held:
 		return
 
-	# Handle flick lock timing
 	if flick_lock_timer > 0:
 		flick_lock_timer -= delta
 		return
@@ -47,13 +46,12 @@ func _physics_process(delta):
 	if velocity.length() > FLICK_SPEED_THRESHOLD:
 		var dir = get_flick_direction(velocity)
 		if dir != "":
-			# Flick detected
 			emit_signal("flick_detected", dir)
 			if debug_label:
 				debug_label.text = "Gesture: " + dir
 
 			cooldown_timer = COOLDOWN_TIME
-			flick_lock_timer = FLICK_LOCK_TIME  # lock out rebound detection
+			flick_lock_timer = FLICK_LOCK_TIME
 
 func get_flick_direction(velocity: Vector3) -> String:
 	var flick_vector = Vector2(-velocity.x, velocity.z)

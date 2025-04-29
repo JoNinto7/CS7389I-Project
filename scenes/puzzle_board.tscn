@@ -44,5 +44,5 @@ snap_mode = 0
 
 [node name="RugSnapZone" parent="." instance=ExtResource("6_asgcc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.001, 0.125)
-grab_distance = 0.05
+grab_distance = 0.15
 snap_mode = 0
