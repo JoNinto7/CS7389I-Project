@@ -57,7 +57,7 @@ size = Vector3(5, 1, 5)
 script = ExtResource("1_xecma")
 
 [node name="XRUser" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.725, 0, 2)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.695628)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRUser"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
@@ -101,6 +101,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 script = ExtResource("3_6xuve")
 controller_node_path = NodePath("..")
 debug_label_path = NodePath("FlickDebugLabel")
+camera_node_path = NodePath("../../XRCamera3D")
 
 [node name="FlickDebugLabel" type="Label3D" parent="XRUser/XROrigin3D/RightController/GestureRecognizer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
