@@ -104,6 +104,7 @@ debug_label_path = NodePath("FlickDebugLabel")
 
 [node name="FlickDebugLabel" type="Label3D" parent="XRUser/XROrigin3D/RightController/GestureRecognizer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.2)
+visible = false
 text = "HELLO"
 
 [node name="Area3D" type="Area3D" parent="XRUser/XROrigin3D/RightController"]
@@ -169,6 +170,16 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ym5vi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_trsr2")
 
+[node name="Ground" type="StaticBody3D" parent="Environment"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
+mesh = SubResource("PlaneMesh_a8whk")
+surface_material_override/0 = SubResource("StandardMaterial3D_ym5vi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_trsr2")
+
 [node name="Props" type="Node3D" parent="Environment"]
 
 [node name="bed_single_A" parent="Environment/Props" instance=ExtResource("7_wddw8")]
@@ -189,16 +200,6 @@ transform = Transform3D(-3.0598e-08, 0, -0.7, 0, 0.7, 0, 0.7, 0, -3.0598e-08, 1.
 [node name="cabinet_medium_decorated" parent="Environment/Props" instance=ExtResource("12_pcyyw")]
 transform = Transform3D(8.34742e-09, 0, -0.7, 0, 0.7, 0, 0.7, 0, 8.34742e-09, 2.085, 0, 0)
 
-[node name="Ground" type="StaticBody3D" parent="Environment"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground"]
-mesh = SubResource("PlaneMesh_a8whk")
-surface_material_override/0 = SubResource("StandardMaterial3D_ym5vi")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_trsr2")
-
 [node name="InstructionLabel" type="Label3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, 8.74228e-08, 1, 8.74228e-08, 7.64274e-15, 8.74228e-08, -1, 0, 2.15, 2.45)
 text = "Hi, I'm making a 3D model of my room, I have all the miniature models of my room
@@ -212,7 +213,7 @@ To grab the pieces simply get close to them and press the grip button on the lef
 controller and release it to place them on the ideal spot."
 font_size = 18
 
-[node name="Puzzle Board" parent="." instance=ExtResource("16_ct25i")]
+[node name="PuzzleBoard" parent="." instance=ExtResource("16_ct25i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329218, 1, 2)
 
 [node name="Pedestal Cabinet" parent="." instance=ExtResource("7_qgrjj")]
@@ -236,4 +237,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.978499, 1, 2.28008)
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.919649, 1, 1.84508)
 
 [node name="Chair" parent="PuzzlePieces" instance=ExtResource("21_dpc7f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60305, 1, 2.18224)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.60305, 1, 2.18224)

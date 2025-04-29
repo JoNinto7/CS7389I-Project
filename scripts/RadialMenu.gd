@@ -1,4 +1,3 @@
-# RadialMenu.gd
 extends Node3D
 
 @export var slot_count: int = 4
