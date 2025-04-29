@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://lcncfaaivi5s"
+path="res://.godot/imported/pictureframe_medium.obj-0467b5033143cc306e6c74ad576665aa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pictureframe_medium.obj-0467b5033143cc306e6c74ad576665aa.mesh"]
+
+source_file="res://extassets/obj/pictureframe_medium.obj"
+dest_files=["res://.godot/imported/pictureframe_medium.obj-0467b5033143cc306e6c74ad576665aa.mesh", "res://.godot/imported/pictureframe_medium.obj-0467b5033143cc306e6c74ad576665aa.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

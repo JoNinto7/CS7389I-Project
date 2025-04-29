@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cehdopcjsd6ul"
+path="res://.godot/imported/cabinet_medium_decorated.obj-4d4a8ee4fe51b1ce2f50fdda954a91ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cabinet_medium_decorated.obj-4d4a8ee4fe51b1ce2f50fdda954a91ee.mesh"]
+
+source_file="res://extassets/obj/cabinet_medium_decorated.obj"
+dest_files=["res://.godot/imported/cabinet_medium_decorated.obj-4d4a8ee4fe51b1ce2f50fdda954a91ee.mesh", "res://.godot/imported/cabinet_medium_decorated.obj-4d4a8ee4fe51b1ce2f50fdda954a91ee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

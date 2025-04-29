@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://sahrgwdsmbo4"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_qcq1h"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_d6e8p"]
+[ext_resource type="ArrayMesh" uid="uid://cehdopcjsd6ul" path="res://extassets/obj/cabinet_medium_decorated.obj" id="3_2ae7n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vvhs7"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pdjj"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="CabinetSnapZone" instance=ExtResource("1_qcq1h")]
+snap_mode = 1
+snap_require = "Cabinet"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_vvhs7")
+
+[node name="HighlightRing" parent="." index="2" instance=ExtResource("2_d6e8p")]
+transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, 0, 0)
+skeleton = NodePath("../Cabinet")
+
+[node name="Cabinet" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.001, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("3_2ae7n")
+surface_material_override/0 = SubResource("StandardMaterial3D_7pdjj")

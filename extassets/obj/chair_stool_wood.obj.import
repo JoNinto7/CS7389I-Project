@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://caui3trl3jd4d"
+path="res://.godot/imported/chair_stool_wood.obj-df44d45b3f5d61db6f5050615a96b790.mesh"
+
+[deps]
+
+files=["res://.godot/imported/chair_stool_wood.obj-df44d45b3f5d61db6f5050615a96b790.mesh"]
+
+source_file="res://extassets/obj/chair_stool_wood.obj"
+dest_files=["res://.godot/imported/chair_stool_wood.obj-df44d45b3f5d61db6f5050615a96b790.mesh", "res://.godot/imported/chair_stool_wood.obj-df44d45b3f5d61db6f5050615a96b790.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

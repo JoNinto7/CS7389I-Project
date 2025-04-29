@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://djsrpelrwocel"
+path="res://.godot/imported/cabinet_small_decorated.obj-53a3da67a008c50b730733ea89aa88dd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cabinet_small_decorated.obj-53a3da67a008c50b730733ea89aa88dd.mesh"]
+
+source_file="res://extassets/obj/cabinet_small_decorated.obj"
+dest_files=["res://.godot/imported/cabinet_small_decorated.obj-53a3da67a008c50b730733ea89aa88dd.mesh", "res://.godot/imported/cabinet_small_decorated.obj-53a3da67a008c50b730733ea89aa88dd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

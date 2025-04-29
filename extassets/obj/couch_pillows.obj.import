@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bs3t847wcx0xi"
+path="res://.godot/imported/couch_pillows.obj-422c2847f64734601d84c4dfc94a40de.mesh"
+
+[deps]
+
+files=["res://.godot/imported/couch_pillows.obj-422c2847f64734601d84c4dfc94a40de.mesh"]
+
+source_file="res://extassets/obj/couch_pillows.obj"
+dest_files=["res://.godot/imported/couch_pillows.obj-422c2847f64734601d84c4dfc94a40de.mesh", "res://.godot/imported/couch_pillows.obj-422c2847f64734601d84c4dfc94a40de.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

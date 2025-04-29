@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cyabnmiu52w2"
+path="res://.godot/imported/rug_rectangle_stripes_A.obj-fd82a80e6645296d4646889652d5a4bb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rug_rectangle_stripes_A.obj-fd82a80e6645296d4646889652d5a4bb.mesh"]
+
+source_file="res://extassets/obj/rug_rectangle_stripes_A.obj"
+dest_files=["res://.godot/imported/rug_rectangle_stripes_A.obj-fd82a80e6645296d4646889652d5a4bb.mesh", "res://.godot/imported/rug_rectangle_stripes_A.obj-fd82a80e6645296d4646889652d5a4bb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

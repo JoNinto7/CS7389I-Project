@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://iaaf3fjtkvk5"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_eg3h7"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_g564k"]
+[ext_resource type="ArrayMesh" uid="uid://chpwi0x4ponrq" path="res://extassets/obj/table_small.obj" id="3_mck3c"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vvhs7"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7pdjj"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="TableSnapZone" instance=ExtResource("1_eg3h7")]
+snap_mode = 1
+snap_require = "Table"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_vvhs7")
+
+[node name="HighlightRing" parent="." index="2" instance=ExtResource("2_g564k")]
+transform = Transform3D(0.1, 0, 0, 0, 0.01, 0, 0, 0, 0.1, 0, 0, 0)
+skeleton = NodePath("../Table")
+
+[node name="Table" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.001, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("3_mck3c")
+surface_material_override/0 = SubResource("StandardMaterial3D_7pdjj")

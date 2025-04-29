@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://111om40rl6cr"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_lg3ss"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_2p0tr"]
+[ext_resource type="ArrayMesh" uid="uid://5d5o81w35p6p" path="res://extassets/obj/bed_single_A.obj" id="3_wr6lb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1k6op"]
+resource_local_to_scene = true
+radius = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fg7bk"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="BedSnapZone" instance=ExtResource("1_lg3ss")]
+snap_mode = 1
+snap_require = "Bed"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_1k6op")
+
+[node name="HighlightRing" parent="." index="2" instance=ExtResource("2_2p0tr")]
+
+[node name="Bed" type="MeshInstance3D" parent="." index="3"]
+transform = Transform3D(0.1, 0, 0, 0, 0.001, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("3_wr6lb")
+surface_material_override/0 = SubResource("StandardMaterial3D_fg7bk")

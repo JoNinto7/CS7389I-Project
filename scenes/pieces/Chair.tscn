@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://x40t73wfqryo"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_6al7w"]
+[ext_resource type="ArrayMesh" uid="uid://cq5lq8l1hbgsg" path="res://extassets/obj/chair_C.obj" id="2_ff4du"]
+[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="3_q0cvk"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="4_hjbl5"]
+[ext_resource type="Material" uid="uid://loaptyw05cak" path="res://materials/highlight.tres" id="5_k0rqy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f7u64"]
+height = 0.250235
+radius = 0.0485787
+
+[node name="Chair" groups=["Chair"] instance=ExtResource("1_6al7w")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126451, 0)
+shape = SubResource("CylinderShape3D_f7u64")
+
+[node name="Chair" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_ff4du")
+
+[node name="GrabPointSnap" parent="." index="2" instance=ExtResource("3_q0cvk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00380896, 0)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
+script = ExtResource("4_hjbl5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0" groups=["Chair"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_ff4du")
+surface_material_override/0 = ExtResource("5_k0rqy")

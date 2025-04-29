@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b77p6g075cpvb"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_1rlxl"]
+[ext_resource type="ArrayMesh" uid="uid://botax4m721188" path="res://extassets/obj/lamp_standing.obj" id="2_eg8vs"]
+[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="3_50pfs"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="4_oj73f"]
+[ext_resource type="Material" uid="uid://loaptyw05cak" path="res://materials/highlight.tres" id="5_ifqdx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f7u64"]
+height = 0.250235
+radius = 0.0485787
+
+[node name="Lamp" groups=["Lamp"] instance=ExtResource("1_1rlxl")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.126451, 0)
+shape = SubResource("CylinderShape3D_f7u64")
+
+[node name="Lamp" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_eg8vs")
+
+[node name="GrabPointSnap" parent="." index="2" instance=ExtResource("3_50pfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00380896, 0)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
+script = ExtResource("4_oj73f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0" groups=["Lamp"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_eg8vs")
+surface_material_override/0 = ExtResource("5_ifqdx")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://1p0p4pl6rjrj"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_32rm8"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="2_6ccyf"]
+[ext_resource type="ArrayMesh" uid="uid://5d5o81w35p6p" path="res://extassets/obj/bed_single_A.obj" id="2_h12ta"]
+[ext_resource type="PackedScene" uid="uid://dh8grd7s3n8kg" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.tscn" id="3_4agf1"]
+[ext_resource type="Material" uid="uid://loaptyw05cak" path="res://materials/highlight.tres" id="4_j3w4d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nkpj"]
+size = Vector3(1.56616, 0.539581, 2.69525)
+
+[node name="Bed" groups=["Bed"] instance=ExtResource("1_32rm8")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.00622559, 0.026583, 0.0137007)
+shape = SubResource("BoxShape3D_8nkpj")
+
+[node name="Bed" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_h12ta")
+
+[node name="GrabPointSnap" parent="." index="2" instance=ExtResource("3_4agf1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00455782, 0)
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="3"]
+script = ExtResource("2_6ccyf")
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = ExtResource("2_h12ta")
+surface_material_override/0 = ExtResource("4_j3w4d")

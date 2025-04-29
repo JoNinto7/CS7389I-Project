@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://botax4m721188"
+path="res://.godot/imported/lamp_standing.obj-5f16a9cd5fee23020321566629a1cbd7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lamp_standing.obj-5f16a9cd5fee23020321566629a1cbd7.mesh"]
+
+source_file="res://extassets/obj/lamp_standing.obj"
+dest_files=["res://.godot/imported/lamp_standing.obj-5f16a9cd5fee23020321566629a1cbd7.mesh", "res://.godot/imported/lamp_standing.obj-5f16a9cd5fee23020321566629a1cbd7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

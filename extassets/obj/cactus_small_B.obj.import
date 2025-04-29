@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dk531lgl88orq"
+path="res://.godot/imported/cactus_small_B.obj-1df85b8c424e70db48bb675ff0a31ee0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/cactus_small_B.obj-1df85b8c424e70db48bb675ff0a31ee0.mesh"]
+
+source_file="res://extassets/obj/cactus_small_B.obj"
+dest_files=["res://.godot/imported/cactus_small_B.obj-1df85b8c424e70db48bb675ff0a31ee0.mesh", "res://.godot/imported/cactus_small_B.obj-1df85b8c424e70db48bb675ff0a31ee0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

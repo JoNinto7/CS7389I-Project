@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cx6g8bebty7hn"
+path="res://.godot/imported/armchair_pillows.obj-6ec9e1f4f2e3574e967e34a14615e096.mesh"
+
+[deps]
+
+files=["res://.godot/imported/armchair_pillows.obj-6ec9e1f4f2e3574e967e34a14615e096.mesh"]
+
+source_file="res://extassets/obj/armchair_pillows.obj"
+dest_files=["res://.godot/imported/armchair_pillows.obj-6ec9e1f4f2e3574e967e34a14615e096.mesh", "res://.godot/imported/armchair_pillows.obj-6ec9e1f4f2e3574e967e34a14615e096.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

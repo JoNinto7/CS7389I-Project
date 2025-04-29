@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://yio8yw145a78"
+path="res://.godot/imported/rug_oval_A.obj-047d6aa92655e9802684d8608e712872.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rug_oval_A.obj-047d6aa92655e9802684d8608e712872.mesh"]
+
+source_file="res://extassets/obj/rug_oval_A.obj"
+dest_files=["res://.godot/imported/rug_oval_A.obj-047d6aa92655e9802684d8608e712872.mesh", "res://.godot/imported/rug_oval_A.obj-047d6aa92655e9802684d8608e712872.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
