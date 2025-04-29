@@ -1,4 +1,10 @@
 res://scenes/main.tscn
 res://openxr_action_map.tres
+res://scripts/RadialMenu.gd
+res://scripts/right_controller.gd
 res://scripts/GestureRecognizer.gd
-res://scripts/initialize.gd
+res://scenes/puzzle_piece.tscn
+res://scripts/puzzle_piece.gd
+res://PuzzlePieces/PuzzlePiece_CubeRed.tscn
+res://PuzzlePieces/PuzzlePiece_CapsuleMagenta.tscn
+res://PuzzlePieces/PuzzlePiece_CapsuleBlue.tscn

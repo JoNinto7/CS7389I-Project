@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cma13xjay6pau"]
+[gd_scene load_steps=18 format=3 uid="uid://cma13xjay6pau"]
 
 [ext_resource type="Script" path="res://scripts/initialize.gd" id="1_xecma"]
 [ext_resource type="Script" path="res://scripts/GestureRecognizer.gd" id="3_6xuve"]
+[ext_resource type="Script" path="res://scripts/right_controller.gd" id="3_njmga"]
 [ext_resource type="PackedScene" uid="uid://dw2kfbg15qqeu" path="res://controllers/controller_l.fbx" id="3_y2kpf"]
 [ext_resource type="PackedScene" uid="uid://doel0ns5nc6bm" path="res://controllers/controller_r.fbx" id="4_5ti0a"]
+[ext_resource type="Script" path="res://scripts/RadialMenu.gd" id="6_ki5y0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjijl"]
 size = Vector3(0.5, 1.5, 0.5)
@@ -13,6 +15,57 @@ radius = 0.06
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bc56u"]
 radius = 0.06
+
+[sub_resource type="GDScript" id="GDScript_6lbjv"]
+script/source = "# PuzzlePiece.gd
+extends Node3D
+
+@onready var mesh: MeshInstance3D = $Mesh
+@onready var area: Area3D = $Area
+@onready var collision: CollisionShape3D = $Area/Collision
+
+var piece_type: String = \"\"
+var piece_color: Color = Color.WHITE
+
+func set_shape(shape_type: String):
+	piece_type = shape_type
+
+	match shape_type:
+		\"cube\":
+			mesh.mesh = BoxMesh.new()
+			collision.shape = BoxShape3D.new()
+		\"sphere\":
+			mesh.mesh = SphereMesh.new()
+			collision.shape = SphereShape3D.new()
+		\"capsule\":
+			mesh.mesh = CapsuleMesh.new()
+			collision.shape = CapsuleShape3D.new()
+		\"cylinder\":
+			mesh.mesh = CylinderMesh.new()
+			collision.shape = CylinderShape3D.new()
+		_:
+			push_error(\"Unknown shape type: %s\" % shape_type)
+
+func set_color(color: Color):
+	piece_color = color
+
+	var mat = StandardMaterial3D.new()
+	mat.albedo_color = color
+	mesh.material_override = mat
+"
+
+[sub_resource type="PackedScene" id="PackedScene_u2buw"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("PuzzlePiece", "script", "Node3D", "MeshInstance3D", "Area3D", "CollisionShape3D"),
+"node_count": 4,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2, 0, -1, 1, 1, 0, 0, 0, 0, 3, 3, -1, 0, 0, 0, 0, 4, 4, -1, 0, 0, 2, 0, 5, 5, -1, 0, 0),
+"variants": [SubResource("GDScript_6lbjv")],
+"version": 3
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_osj4q"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -70,6 +123,9 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 1.4, -0.4)
 tracker = &"right_hand"
 pose = &"aim"
+script = ExtResource("3_njmga")
+radial_menu_path = NodePath("RadialMenu")
+gesture_recognizer_path = NodePath("GestureRecognizer")
 
 [node name="RightControllerMesh" parent="XRUser/XROrigin3D/RightController" instance=ExtResource("4_5ti0a")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0.05)
@@ -88,6 +144,10 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="XRUser/XROrigin3D/RightController/Area3D"]
 shape = SubResource("SphereShape3D_bc56u")
+
+[node name="RadialMenu" type="Node3D" parent="XRUser/XROrigin3D/RightController"]
+script = ExtResource("6_ki5y0")
+puzzle_piece_scene = SubResource("PackedScene_u2buw")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pi0m0")

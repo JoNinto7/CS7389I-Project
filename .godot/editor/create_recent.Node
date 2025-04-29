@@ -1,2 +1,5 @@
-Label3D
+Area3D
+MeshInstance3D
+CollisionShape3D
 Node3D
+Label3D
