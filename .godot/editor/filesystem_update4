@@ -8,3 +8,4 @@ res://scripts/puzzle_piece.gd
 res://PuzzlePieces/PuzzlePiece_CubeRed.tscn
 res://PuzzlePieces/PuzzlePiece_CapsuleMagenta.tscn
 res://PuzzlePieces/PuzzlePiece_CapsuleBlue.tscn
+res://scripts/left_controller.gd

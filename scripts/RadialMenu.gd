@@ -1,31 +1,41 @@
 # RadialMenu.gd
 extends Node3D
 
-@export var slot_count: int = 8
+@export var slot_count: int = 4
 @export var radius: float = 0.3
-@export var puzzle_piece_scene: PackedScene
+@export var instruction_label_path: NodePath
+var instruction_label: Label3D
+@export var slot_labels := [
+	"Restart",
+	"Exit",
+	"Back",
+	"Instructions"
+]
 
 var slots: Array = []
 var direction_to_slot := {
 	"down": 0,
-	"bottom right": 1,
-	"right": 2,
-	"upper right": 3,
-	"up": 4,
-	"upper left": 5,
-	"left": 6,
-	"bottom left": 7
+	"right": 1,
+	"up": 2,
+	"left": 3
 }
 var selected_index: int = -1
 
 func _ready():
 	visible = false
 	spawn_slots()
+	
+	if instruction_label_path != NodePath():
+		instruction_label = get_node(instruction_label_path)
 
 func spawn_slots():
 	for i in range(slot_count):
 		var slot = Label3D.new()
-		slot.text = "Slot %d" % i
+		if i < slot_labels.size():
+			slot.text = slot_labels[i]
+		else:
+			slot.text = "Slot %d" % i
+
 		slot.scale = Vector3(0.2, 0.2, 0.2)  # Smaller size
 		slot.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 		slot.modulate = Color(1, 1, 1)  # Default white
@@ -59,12 +69,29 @@ func confirm_selection():
 	if selected_index == -1:
 		return  # No flicked selection
 
-	if selected_index == 7:
-		# Slot 7 = Close menu
-		visible = false
-		selected_index = -1
-	else:
-		# Otherwise, spawn the piece (coming next!)
-		# spawn_puzzle_piece(selected_index)
-		visible = false
-		selected_index = -1
+	match selected_index:
+		0:
+			restart_game()
+		1:
+			exit_game()
+		2:
+			back()
+		3:
+			show_instructions()
+
+	selected_index = -1
+	visible = false
+
+func restart_game():
+	get_tree().reload_current_scene()
+
+func exit_game():
+	get_tree().quit()
+
+func back():
+	# Just close the menu
+	pass
+
+func show_instructions():
+	if instruction_label:
+		instruction_label.visible = not instruction_label.visible

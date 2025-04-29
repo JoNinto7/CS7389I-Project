@@ -1,7 +1,7 @@
 # GestureRecognizer.gd
 extends Node
 
-signal flick_detected(direction: String)  # Direction will now be slot name!
+signal flick_detected(direction: String)
 
 @export var controller_node_path: NodePath
 @export var debug_label_path: NodePath
@@ -9,7 +9,7 @@ signal flick_detected(direction: String)  # Direction will now be slot name!
 var controller: XRController3D
 var debug_label: Label3D
 
-const FLICK_SPEED_THRESHOLD := 2.0
+const FLICK_SPEED_THRESHOLD := 3.5
 const COOLDOWN_TIME := 3.0
 
 var last_position: Vector3
@@ -50,37 +50,21 @@ func _physics_process(delta):
 func get_flick_direction(velocity: Vector3) -> String:
 	var flick_vector = Vector2(-velocity.x, velocity.y)
 
-	if flick_vector.length() < 1.0:
+	# Also look at Z (forward/backward movement)
+	var z_movement = velocity.z
+
+	if flick_vector.length() < 1.0 and abs(z_movement) < 1.0:
 		return ""  # Too weak, ignore
 
-	var angle = flick_vector.angle()  # In radians
-	angle = rad_to_deg(angle)
-
-	# Godot's angle 0 is to the right (x+), increases counter-clockwise
-	# We'll map into 8 regions:
-
-	if angle < 0:
-		angle += 360  # Normalize
-
-	if (angle >= 337.5 or angle < 22.5):
-		return "right"
-	elif (angle >= 22.5 and angle < 67.5):
-		return "upper right"
-	elif (angle >= 67.5 and angle < 112.5):
-		return "up"
-	elif (angle >= 112.5 and angle < 157.5):
-		return "upper left"
-	elif (angle >= 157.5 and angle < 202.5):
-		return "left"
-	elif (angle >= 202.5 and angle < 247.5):
-		return "bottom left"
-	elif (angle >= 247.5 and angle < 292.5):
-		return "down"
-	elif (angle >= 292.5 and angle < 337.5):
-		return "bottom right"
-
-	return ""
-
+	if abs(flick_vector.x) > abs(flick_vector.y) and abs(flick_vector.x) > abs(z_movement):
+		# Horizontal flick
+		return "right" if flick_vector.x > 0 else "left"
+	elif abs(flick_vector.y) > abs(flick_vector.x) and abs(flick_vector.y) > abs(z_movement):
+		# Vertical flick
+		return "up" if flick_vector.y > 0 else "down"
+	else:
+		# Forward/backward flick
+		return "up" if z_movement < 0 else "down"
 
 func _on_button_pressed(name: String):
 	if name == GRIP_BUTTON_NAME:
