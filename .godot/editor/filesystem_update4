@@ -1,5 +1,4 @@
-res://scenes/puzzle_board.tscn
+res://scenes/main.tscn
 res://openxr_action_map.tres
 res://materials/highlight.tres
-res://scripts/GestureRecognizer.gd
-res://scenes/main.tscn
+res://scenes/puzzle_board.tscn
